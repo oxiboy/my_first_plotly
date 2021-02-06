@@ -1,0 +1,25 @@
+---
+title: "A simple plot with plotly"
+author: "Andres Felipe Lagos Ruiz"
+date: "6/2/2021"
+output: html_document
+---
+## Load the library
+```{r library, echo= T}
+suppressWarnings(suppressMessages(library(plotly)))
+```
+## Load the data
+
+It's goingo to used the mtcars data becuase it is part of the R data
+
+```{r loaddata, echo = T}
+data("mtcars")
+```
+
+## Including Plot
+
+A simple plot it's done using the power house and mile per galon of the dataset mtcars
+
+```{r plot, echo = F}
+plot_ly() %>%  add_trace(data = mtcars,x = ~mpg, y = ~hp,color = ~cyl, type = 'scatter', mode ='markers') %>% layout(title ="MPG vs HP")
+```
