@@ -1,0 +1,30 @@
+---
+title: "My first plot"
+author: "Andres Felipe Lagos Ruiz"
+date: "10/2/2021"
+output: ioslides_presentation
+---
+
+## Load the library
+```{r library, echo= T}
+suppressWarnings(suppressMessages(library(plotly)))
+```
+
+It's going to used the mtcars data because it is part of the R data
+
+```{r loaddata, echo = T}
+data("mtcars")
+# suppress warnings  
+storeWarn<- getOption("warn")
+options(warn = -1) 
+```
+
+## Including Plot
+
+
+
+```{r plot, echo = T}
+plot_ly() %>%  add_trace(data = mtcars,x = ~mpg, y = ~hp,color = ~cyl,
+                         type = 'scatter',mode ='markers') %>% layout(title ="MPG vs HP")
+```
+
